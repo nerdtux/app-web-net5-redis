@@ -17,17 +17,22 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IOptions<MyAppSettings> _options;
         private static IConfiguration Configuration { get; set; }
         
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger,
+                              IOptions<MyAppSettings> options,
+                              IConfiguration configuration)
         {
             _logger = logger;
+            _options = options;
             if (Configuration == null)
                 Configuration = configuration;
         }        
         public IActionResult Index()
         {
-            
+            ViewBag.myVar1 = _options.value.Servidor;
+
             IDatabase exact = GetDatabase();
             
             ViewBag.command9 = "GET EXACT";
