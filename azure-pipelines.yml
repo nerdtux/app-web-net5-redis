@@ -6,8 +6,8 @@
 trigger:
 - main
 
-  pool:
-    vmImage: ubuntu-20.04
+pool:
+  vmImage: ubuntu-20.04
 
 variables:
   buildConfiguration: 'Release'
