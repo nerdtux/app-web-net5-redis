@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using WebApp.Models;
+using WebApp.Services;
 
 namespace WebApp.Controllers
 {
@@ -20,9 +22,7 @@ namespace WebApp.Controllers
         private readonly IOptions<MyAppSettings> _options;
         private static IConfiguration Configuration { get; set; }
         
-        public HomeController(ILogger<HomeController> logger,
-                              IOptions<MyAppSettings> options,
-                              IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IOptions<MyAppSettings> options, IConfiguration configuration)
         {
             _logger = logger;
             _options = options;
@@ -31,7 +31,7 @@ namespace WebApp.Controllers
         }        
         public IActionResult Index()
         {
-            ViewBag.myVar1 = _options.value.Servidor;
+            ViewBag.myVar1 = _options.Value.Servidor;
 
             IDatabase exact = GetDatabase();
             
