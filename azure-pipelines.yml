@@ -13,10 +13,11 @@ variables:
 
 jobs:
 
-pool:
-  vmImage: ubuntu-20.04
-  
 - job: A
+
+  pool:
+    vmImage: ubuntu-20.04
+
   steps:
   - script: dotnet build --configuration $(buildConfiguration)
     displayName: 'dotnet build $(buildConfiguration)'
