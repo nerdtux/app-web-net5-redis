@@ -6,12 +6,17 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-20.04
+
 
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+jobs:
+
+pool:
+  vmImage: ubuntu-20.04
+  
+- job: A
+  steps:
+  - script: dotnet build --configuration $(buildConfiguration)
+    displayName: 'dotnet build $(buildConfiguration)'
