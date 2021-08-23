@@ -6,18 +6,21 @@
 trigger:
 - main
 
-environment: 
-  name: VM Linux
-  resourceName: Linux1
-  resourceType: virtualMachine
 
-pool: Linux1
+
+
+
+# pool: Linux1
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
 
+environment: 
+  name: VM Linux
+  resourceName: Linux1
+  resourceType: virtualMachine
 
 - script: dotnet build --configuration $(buildConfiguration)
 
