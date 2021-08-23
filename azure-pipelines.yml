@@ -10,7 +10,7 @@ jobs:
 - deployment: DeployWeb
   displayName: deploy Web App
   pool: Linux1  
-  environment: 'VM Linux.Linux1'
+  environment: 'VM Linux'
     
   variables:
     buildConfiguration: 'Release'
