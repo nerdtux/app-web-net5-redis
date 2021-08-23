@@ -6,22 +6,17 @@
 trigger:
 - main
 
+jobs:
+- job: Teste
 
-
-
-
-# pool: Linux1
-
-variables:
-  buildConfiguration: 'Release'
-
-steps:
-
-environment: 
-  name: VM Linux
-  resourceName: Linux1
-  resourceType: virtualMachine
-
-- script: dotnet build --configuration $(buildConfiguration)
+  pool: Linux1  
+#  environment: 
+#    name: 'VM Linux'
+#    resourceName: 'Linux1'
+    
+  variables:
+    buildConfiguration: 'Release'
+  steps:
+  - script: dotnet build --configuration $(buildConfiguration)
 
 #  displayName: 'dotnet build $(buildConfiguration)'
