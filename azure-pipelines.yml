@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: linux
+pool: L1
 
 variables:
   buildConfiguration: 'Release'
