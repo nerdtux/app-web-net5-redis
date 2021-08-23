@@ -6,9 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'ubuntu-latest'
-  environment: 'web'
+pool: linux
+
 variables:
   buildConfiguration: 'Release'
 
