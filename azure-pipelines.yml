@@ -7,16 +7,18 @@ trigger:
 - main
 
 jobs:
-- job: Teste
-
+- deployment: DeployWeb
+  displayName: deploy Web App
   pool: Linux1  
-#  environment: 
-#    name: 'VM Linux'
-#    resourceName: 'Linux1'
+  environment: 'VM Linux.Linux1'
     
   variables:
     buildConfiguration: 'Release'
-  steps:
-  - script: dotnet build --configuration $(buildConfiguration)
+  strategy:
+    # default deployment strategy, more coming...
+    runOnce:
+      deploy:
+        steps:
+        - script: dotnet build --configuration $(buildConfiguration)
 
 #  displayName: 'dotnet build $(buildConfiguration)'
