@@ -9,7 +9,7 @@ trigger:
 jobs:
 - deployment: DeployWeb
   displayName: deploy Web App
-  pool: Linux1  
+  pool: 'ubuntu-latest'
   environment: 'VM Linux'
     
   variables:
